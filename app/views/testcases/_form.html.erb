@@ -1,0 +1,45 @@
+<%= form_for(@testcase) do |f| %>
+  <% if @testcase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testcase.errors.count, "error") %> prohibited this testcase from being saved:</h2>
+
+      <ul>
+      <% @testcase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :repro_steps %><br />
+    <%= f.text_field :repro_steps %>
+  </div>
+  <div class="field">
+    <%= f.label :expected_results %><br />
+    <%= f.text_field :expected_results %>
+  </div>
+  <div class="field">
+    <%= f.label :automated %><br />
+    <%= f.check_box :automated %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br />
+    <%= f.select :user_id, @users %>
+  </div>
+  <div class="field">
+    <%= f.label :locales %><br />
+    <%= f.select :locale_ids, @locales, {}, { :multiple => true, :size => [@locales.length] } %>
+  </div>
+  <div class="field">
+    <%= f.label :function_modules %><br />
+    <%= f.select :function_module_ids, @function_modules, {}, { :multiple => true, :size => [@function_modules.length>10?10:@function_modules.length] } %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

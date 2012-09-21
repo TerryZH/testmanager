@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  repro_steps: MyString
+  expected_results: MyString
+  automated: false
+  author: 
+  locales: 
+  function_modules: 
+
+two:
+  title: MyString
+  repro_steps: MyString
+  expected_results: MyString
+  automated: false
+  author: 
+  locales: 
+  function_modules: 

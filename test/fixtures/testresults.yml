@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  testplan: 
+  testcase: 
+  locale: 
+  test_result: MyString
+  fail_bugs: 
+  block_bugs: 
+  comments: MyString
+  browsers: 
+
+two:
+  user: 
+  testplan: 
+  testcase: 
+  locale: 
+  test_result: MyString
+  fail_bugs: 
+  block_bugs: 
+  comments: MyString
+  browsers: 

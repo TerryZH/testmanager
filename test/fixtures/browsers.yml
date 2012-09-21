@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  browser_core: MyString
+  browser_family: MyString
+  browser_version: MyString
+
+two:
+  browser_core: MyString
+  browser_family: MyString
+  browser_version: MyString

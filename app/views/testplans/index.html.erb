@@ -1,0 +1,35 @@
+<h1>Listing testplans</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Desc</th>
+    <th>Owner</th>
+    <th>Start date planned</th>
+    <th>End date planned</th>
+    <th>Start date actual</th>
+    <th>End date actual</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @testplans.each do |testplan| %>
+  <tr>
+    <td><%= testplan.name %></td>
+    <td><%= testplan.desc %></td>
+    <td><%= testplan.user.name %></td>
+    <td><%= testplan.start_date_planned %></td>
+    <td><%= testplan.end_date_planned %></td>
+    <td><%= testplan.start_date_actual %></td>
+    <td><%= testplan.end_date_actual %></td>
+    <td><%= link_to 'Show', testplan %></td>
+    <td><%= link_to 'Edit', edit_testplan_path(testplan) %></td>
+    <td><%= link_to 'Destroy', testplan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Testplan', new_testplan_path %>

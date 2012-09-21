@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testmanager</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="body_top">
+  <ul>
+    <li><%= link_to 'users', users_path%></li>
+    <li><%= link_to 'test plans', testplans_path%></li>
+    <li><%= link_to 'test cases', testcases_path%></li>
+    <li><%= link_to 'locales', locales_path%></li>
+    <li><%= link_to 'function modules', function_modules_path%></li>
+    <li><%= link_to 'test results', testresults_path%></li>
+    <li><%= link_to 'browsers', browsers_path%></li>
+  </ul>
+</div>
+
+<div class="body_main"></div>
+<%= yield %>
+
+</body>
+</html>

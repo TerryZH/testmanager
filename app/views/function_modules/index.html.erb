@@ -1,0 +1,23 @@
+<h1>Listing function_modules</h1>
+
+<table>
+  <tr>
+    <th>Module name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @function_modules.each do |function_module| %>
+  <tr>
+    <td><%= function_module.module_name %></td>
+    <td><%= link_to 'Show', function_module %></td>
+    <td><%= link_to 'Edit', edit_function_module_path(function_module) %></td>
+    <td><%= link_to 'Destroy', function_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Function module', new_function_module_path %>

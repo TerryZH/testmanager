@@ -1,0 +1,53 @@
+<%= form_for(@testresult) do |f| %>
+  <% if @testresult.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testresult.errors.count, "error") %> prohibited this testresult from being saved:</h2>
+
+      <ul>
+      <% @testresult.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :testplan %><br />
+    <%= f.text_field :testplan %>
+  </div>
+  <div class="field">
+    <%= f.label :testcase %><br />
+    <%= f.text_field :testcase %>
+  </div>
+  <div class="field">
+    <%= f.label :locale %><br />
+    <%= f.text_field :locale %>
+  </div>
+  <div class="field">
+    <%= f.label :test_result %><br />
+    <%= f.text_field :test_result %>
+  </div>
+  <div class="field">
+    <%= f.label :fail_bugs %><br />
+    <%= f.text_field :fail_bugs %>
+  </div>
+  <div class="field">
+    <%= f.label :block_bugs %><br />
+    <%= f.text_field :block_bugs %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :browser %><br />
+    <%= f.select :browser_id, @browsers %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

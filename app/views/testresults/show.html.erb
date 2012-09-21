@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @testresult.user %>
+</p>
+
+<p>
+  <b>Testplan:</b>
+  <%= @testresult.testplan %>
+</p>
+
+<p>
+  <b>Testcase:</b>
+  <%= @testresult.testcase %>
+</p>
+
+<p>
+  <b>Locale:</b>
+  <%= @testresult.locale %>
+</p>
+
+<p>
+  <b>Test result:</b>
+  <%= @testresult.test_result %>
+</p>
+
+<p>
+  <b>Fail bugs:</b>
+  <%= @testresult.fail_bugs %>
+</p>
+
+<p>
+  <b>Block bugs:</b>
+  <%= @testresult.block_bugs %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @testresult.comments %>
+</p>
+
+<p>
+  <b>Browsers:</b>
+  <%= @testresult.browsers %>
+</p>
+
+
+<%= link_to 'Edit', edit_testresult_path(@testresult) %> |
+<%= link_to 'Back', testresults_path %>

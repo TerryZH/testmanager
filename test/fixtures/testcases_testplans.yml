@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  testcase_id: 1
+  testplan_id: 1
+
+two:
+  testcase_id: 1
+  testplan_id: 1

@@ -1,0 +1,23 @@
+<h1>Listing blockers</h1>
+
+<table>
+  <tr>
+    <th>Blockers</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blockers.each do |blocker| %>
+  <tr>
+    <td><%= blocker.blockers_id %></td>
+    <td><%= link_to 'Show', blocker %></td>
+    <td><%= link_to 'Edit', edit_blocker_path(blocker) %></td>
+    <td><%= link_to 'Destroy', blocker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Blocker', new_blocker_path %>

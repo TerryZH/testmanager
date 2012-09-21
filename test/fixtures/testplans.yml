@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyString
+  owner: 
+  start_date_planned: 2012-09-12 15:04:03
+  end_date_planned: 2012-09-12 15:04:03
+  start_date_actual: 2012-09-12 15:04:03
+  end_date_actual: 2012-09-12 15:04:03
+
+two:
+  name: MyString
+  desc: MyString
+  owner: 
+  start_date_planned: 2012-09-12 15:04:03
+  end_date_planned: 2012-09-12 15:04:03
+  start_date_actual: 2012-09-12 15:04:03
+  end_date_actual: 2012-09-12 15:04:03

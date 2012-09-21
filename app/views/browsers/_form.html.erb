@@ -1,0 +1,29 @@
+<%= form_for(@browser) do |f| %>
+  <% if @browser.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@browser.errors.count, "error") %> prohibited this browser from being saved:</h2>
+
+      <ul>
+      <% @browser.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :browser_core %><br />
+    <%= f.text_field :browser_core %>
+  </div>
+  <div class="field">
+    <%= f.label :browser_family %><br />
+    <%= f.text_field :browser_family %>
+  </div>
+  <div class="field">
+    <%= f.label :browser_version %><br />
+    <%= f.text_field :browser_version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

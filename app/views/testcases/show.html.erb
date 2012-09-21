@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @testcase.title %>
+</p>
+
+<p>
+  <b>Repro steps:</b>
+  <%= @testcase.repro_steps %>
+</p>
+
+<p>
+  <b>Expected results:</b>
+  <%= @testcase.expected_results %>
+</p>
+
+<p>
+  <b>Automated:</b>
+  <%= @testcase.automated %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @testcase.user.name %>
+</p>
+
+<p>
+  <b>Locales:</b>
+  <%= @testcase.locales.collect do |s| [s.locale_name] end.join ", " %>
+</p>
+
+<p>
+  <b>Function modules:</b>
+  <%= @testcase.function_modules.collect do |s| [s.module_name] end.join ", " %>
+</p>
+
+
+<%= link_to 'Edit', edit_testcase_path(@testcase) %> |
+<%= link_to 'Back', testcases_path %>

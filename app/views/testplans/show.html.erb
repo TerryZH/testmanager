@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @testplan.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @testplan.desc %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @testplan.user.name %>
+</p>
+
+<p>
+  <b>Start date planned:</b>
+  <%= @testplan.start_date_planned %>
+</p>
+
+<p>
+  <b>End date planned:</b>
+  <%= @testplan.end_date_planned %>
+</p>
+
+<p>
+  <b>Start date actual:</b>
+  <%= @testplan.start_date_actual %>
+</p>
+
+<p>
+  <b>End date actual:</b>
+  <%= @testplan.end_date_actual %>
+</p>
+
+<p>
+  <b>Test cases:</b>
+  <% @testplan.testcases.each do |testcase| %>
+    <p>
+      <b>Description:</b>
+  	  <%= testcase.title %>
+    </p>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_testplan_path(@testplan) %> |
+<%= link_to 'Back', testplans_path %> |
+<%= link_to 'Add Cases', select_cases_testplan_path(@testplan) %>

@@ -1,0 +1,46 @@
+<h1>Please select testcases for test plan <%= @testplan.id %></h1>
+
+<%= form_for(@testplan) do |f| %>
+  <% if @testplan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@testplan.errors.count, "error") %> prohibited this testplan from being saved:</h2>
+
+      <ul>
+      <% @testplan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <table>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Repro steps</th>
+        <th>Expected results</th>
+        <th>Automated</th>
+        <th>Author</th>
+        <th>Locales</th>
+        <th>Function modules</th>
+      </tr>
+
+    <% @testcases.each do |testcase| %>
+      <tr>
+  	    <td><%= check_box_tag 'testplan[testcase_ids][]', testcase.id, @testplan.testcases.map(&:id).include?(testcase.id) %></td>
+        <td><%= testcase.title %></td>
+        <td><%= testcase.repro_steps %></td>
+        <td><%= testcase.expected_results %></td>
+        <td><%= testcase.automated %></td>
+        <td><%= testcase.user.name %></td>
+        <td><%= testcase.locales.collect do |s| [s.locale_name] end.join ", " %></td>
+        <td><%= testcase.function_modules.collect do |s| [s.module_name] end.join ", " %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
