@@ -2,6 +2,7 @@ class CreateTestplans < ActiveRecord::Migration
   def change
     create_table :testplans do |t|
       t.references :user
+      t.references :task
 
       t.string :name
       t.string :desc
@@ -14,6 +15,6 @@ class CreateTestplans < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :testplans, :user_id
+    add_index :testplans, :user_id, :task_id
   end
 end

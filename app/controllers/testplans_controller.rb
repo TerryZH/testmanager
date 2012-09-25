@@ -14,6 +14,11 @@ class TestplansController < ApplicationController
   # GET /testplans/1.json
   def show
     @testplan = Testplan.find(params[:id])
+    @task = Task.find(@testplan.task_id)
+    @locales = @testplan.locales.find(:all, :order => "id").
+                             collect do |s|
+                               [s.locale_name, s.id]
+                             end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,6 +34,14 @@ class TestplansController < ApplicationController
                          collect do |s|
                            [s.name, s.id]
                          end
+    @tasks = Task.find(:all, :order => "name").
+                         collect do |s|
+                           [s.name, s.id]
+                         end
+    @locales = Locale.find(:all, :order => "id").
+                             collect do |s|
+                               [s.locale_name, s.id]
+                             end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +56,15 @@ class TestplansController < ApplicationController
                          collect do |s|
                            [s.name, s.id]
                          end
+    @tasks = Task.find(:all, :order => "name").
+                         collect do |s|
+                           [s.name, s.id]
+                         end
+    @locales = Locale.find(:all, :order => "id").
+                             collect do |s|
+                               [s.locale_name, s.id]
+                             end
+
   end
 
   # POST /testplans
@@ -89,8 +111,38 @@ class TestplansController < ApplicationController
     end
   end
 
+  # SELECT_CASES /testplans/1/select_cases
   def select_cases
     @testplan = Testplan.find(params[:id])
     @testcases = Testcase.find(:all)
+  end
+
+  #
+  def add_results
+    @testplan = Testplan.find(params[:id])
+
+    respond_to do |format|
+      if @testplan.add_test_results(params)
+        format.html { redirect_to @testplan, notice: 'Testresults was successfully created.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @testplan.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  #
+  def edit_results
+    @testplan = Testplan.find(params[:id])
+    @testcases = @testplan.testcases
+    @browsers = Browser.find(:all).
+                               collect do |s|
+                                 [s.name, s.id]
+                               end
+    @locales = @testplan.locales.find(:all).
+                             collect do |s|
+                               [s.name, s.id]
+                             end
   end
 end

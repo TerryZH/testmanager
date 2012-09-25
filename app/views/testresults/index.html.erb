@@ -23,8 +23,8 @@
     <td><%= testresult.testcase %></td>
     <td><%= testresult.locale %></td>
     <td><%= testresult.test_result %></td>
-    <td><%= testresult.fail_bugs %></td>
-    <td><%= testresult.block_bugs %></td>
+    <td><%= testresult.fail_bugs.collect do |s| [s.locale_name] end.join ", " %></td>
+    <td><%= testresult.block_bugs.collect do |s| [s.locale_name] end.join ", " %></td>
     <td><%= testresult.comments %></td>
     <td><%= testresult.browsers %></td>
     <td><%= link_to 'Show', testresult %></td>

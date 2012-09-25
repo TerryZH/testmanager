@@ -1,4 +1,6 @@
 Testmanager::Application.routes.draw do
+  resources :tasks
+
   resources :blockers
 
   resources :bugs
@@ -17,7 +19,9 @@ Testmanager::Application.routes.draw do
 
   resources :testplans
 
-  match 'testplans/:id/addcases' => 'testplans#select_cases', :as => :select_cases_testplan
+  match 'testplans/:id/select_cases' => 'testplans#select_cases', :as => :select_cases_testplan
+  match 'testplans/:id/edit_results' => 'testplans#edit_results', :as => :edit_results_testplan
+  match 'testplans/:id/add_results' => 'testplans#add_results', :as => :add_results_testplan, :via => 'post'
 
   get "home/index"
 

@@ -1,0 +1,48 @@
+<h1>Editing test results</h1>
+
+<%= form_tag :action => :add_results %>
+
+  <div class="field">
+  	<table>
+    <% @testcases.each do |testcase| %>
+      <tr>
+  	    <td><%= check_box_tag 'testcase_ids[]', testcase.id, @testplan.testcases.map(&:id).include?(testcase.id) %></td>
+        <td><%= testcase.title %></td>
+        <td><%= testcase.repro_steps %></td>
+        <td><%= testcase.expected_results %></td>
+        <td><%= testcase.automated %></td>
+        <td><%= testcase.user.name %></td>
+        <td><%= testcase.locales.collect do |s| [s.locale_name] end.join ", " %></td>
+        <td><%= testcase.function_modules.collect do |s| [s.module_name] end.join ", " %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <div class="field">
+    <%= label_tag :locale %><br />
+    <%= select_tag :locale_id, options_for_select(@locales) %>
+  </div>
+  <div class="field">
+    <%= label_tag :test_result %><br />
+    <%= text_field_tag :test_result %>
+  </div>
+  <div class="field">
+    <%= label_tag :bugs %><br />
+    <%= text_field_tag :bug_ids %>
+  </div>
+  <div class="field">
+    <%= label_tag :blockers %><br />
+    <%= text_field_tag :blocker_ids %>
+  </div>
+  <div class="field">
+    <%= label_tag :comments %><br />
+    <%= text_field_tag :comments %>
+  </div>
+  <div class="field">
+    <%= label_tag :browser %><br />
+    <%= select_tag :browser_id, options_for_select(@browsers) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>

@@ -1,0 +1,50 @@
+<h1>Please find more details about the task in the following</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @task.name %>
+</p>
+
+<p>
+  <b>Start date planned:</b>
+  <%= @task.start_date_planned %>
+</p>
+
+<p>
+  <b>Start date actual:</b>
+  <%= @task.start_date_actual %>
+</p>
+
+<p>
+  <b>End date planned:</b>
+  <%= @task.end_date_planned %>
+</p>
+
+<p>
+  <b>End date actual:</b>
+  <%= @task.end_date_actual %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @task.desc %>
+</p>
+
+<p>
+  <b>Test plans:</b>
+  <table>
+  <% @task.testplans.each do |testplan| %>
+    <tr>
+      <td><%= testplan.name %> (<%= testplan.pass_rate%>&#37;/<%= testplan.completion_rate%>&#37;)</td>
+      <td><%= link_to 'Show', testplan %></td>
+    </tr>
+  <% end %>
+  </table>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %> |
+<%= link_to 'Add new plan', new_testplan_path + "?task_id=%{task_id}"%{:task_id => @task.id} %>
+

@@ -16,6 +16,12 @@
 </p>
 
 <p>
+  <b>Locales:</b>
+  <%= @testplan.locales.collect do |s| [s.locale_name] end.join ", " %>
+
+</p>
+
+<p>
   <b>Start date planned:</b>
   <%= @testplan.start_date_planned %>
 </p>
@@ -37,14 +43,29 @@
 
 <p>
   <b>Test cases:</b>
+  <table>
+    <tr>
+      <th>Title</th>
+      <% @locales.each do |locale| %>
+        <th><%= locale[0] %></th>
+      <% end %>
+      <th></th>
+      <th></th>
+    </tr>
   <% @testplan.testcases.each do |testcase| %>
-    <p>
-      <b>Description:</b>
-  	  <%= testcase.title %>
-    </p>
+    <tr>
+      <td><%= testcase.title %></td>
+      <% @locales.each do |locale| %>
+        <% testresult = @testplan.find_result(testcase.id, locale[1]) %>
+        <td><%= testresult ? testresult.test_result : "pending" %></td>
+      <% end %>
+      <td><%= link_to 'Show', testcase %></td>
+    </tr>
   <% end %>
+  </table>
 </p>
 
 <%= link_to 'Edit', edit_testplan_path(@testplan) %> |
-<%= link_to 'Back', testplans_path %> |
-<%= link_to 'Add Cases', select_cases_testplan_path(@testplan) %>
+<%= link_to 'Visit Parent Task', @task %> |
+<%= link_to 'Add Cases', select_cases_testplan_path(@testplan) %> |
+<%= link_to 'Add Results', edit_results_testplan_path(@testplan) %>

@@ -20,8 +20,16 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
+    <%= f.label :locales %><br />
+    <%= f.select :locale_ids, @locales, {}, { :multiple => true, :size => [@locales ? @locales.length : 10] } %>
+  </div>
+  <div class="field">
     <%= f.label "Owner" %><br />
     <%= f.select :user_id, @users %>
+  </div>
+  <div class="field">
+    <%= f.label "Task ID" %><br />
+    <%= f.select :task_id, @tasks %>
   </div>
   <div class="field">
     <%= f.label :start_date_planned %><br />

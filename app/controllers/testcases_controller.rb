@@ -68,7 +68,8 @@ class TestcasesController < ApplicationController
 
     respond_to do |format|
       if @testcase.save
-        format.html { redirect_to @testcase, notice: 'Testcase was successfully created.' }
+#        format.html { redirect_to @testcase, notice: 'Testcase was successfully created.' }
+        format.html { redirect_to @testcase, notice: params }
         format.json { render json: @testcase, status: :created, location: @testcase }
       else
         format.html { render action: "new" }

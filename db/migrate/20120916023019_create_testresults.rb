@@ -6,7 +6,8 @@ class CreateTestresults < ActiveRecord::Migration
       t.references :testcase
       t.references :locale
       t.references :browser
-
+      
+      t.string :env
       t.string :test_result
       t.string :comments
 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_date_planned: 2012-09-25
+  start_date_actual: 2012-09-25
+  end_date_planned: 2012-09-25
+  end_date_actual: 2012-09-25
+  desc: MyString
+  testplans: 
+
+two:
+  name: MyString
+  start_date_planned: 2012-09-25
+  start_date_actual: 2012-09-25
+  end_date_planned: 2012-09-25
+  end_date_actual: 2012-09-25
+  desc: MyString
+  testplans: 

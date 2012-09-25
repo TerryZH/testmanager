@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120919095509) do
+ActiveRecord::Schema.define(:version => 20120925065946) do
 
   create_table "blockers", :force => true do |t|
     t.string   "blockers_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "blockers_testresults", :id => false, :force => true do |t|
+    t.integer "blocker_id"
+    t.integer "testresult_id"
   end
 
   create_table "browsers", :force => true do |t|
@@ -29,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20120919095509) do
     t.string   "bugs_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "bugs_testresults", :id => false, :force => true do |t|
+    t.integer "bug_id"
+    t.integer "testresult_id"
   end
 
   create_table "function_modules", :force => true do |t|
@@ -48,6 +58,25 @@ ActiveRecord::Schema.define(:version => 20120919095509) do
     t.integer "locale_id"
     t.integer "testcase_id"
   end
+
+  create_table "locales_testplans", :id => false, :force => true do |t|
+    t.integer "locale_id"
+    t.integer "testplan_id"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "name"
+    t.date     "start_date_planned"
+    t.date     "start_date_actual"
+    t.date     "end_date_planned"
+    t.date     "end_date_actual"
+    t.string   "desc"
+    t.integer  "testplans_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "tasks", ["testplans_id"], :name => "index_tasks_on_testplans_id"
 
   create_table "testcases", :force => true do |t|
     t.integer  "user_id"
@@ -79,9 +108,8 @@ ActiveRecord::Schema.define(:version => 20120919095509) do
     t.datetime "logged_time"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "task_id"
   end
-
-  add_index "testplans", ["user_id"], :name => "index_testplans_on_user_id"
 
   create_table "testresults", :force => true do |t|
     t.integer  "user_id"
