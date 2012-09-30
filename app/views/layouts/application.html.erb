@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class="body_top">
+<div id="top_bar">
   <ul>
     <li><%= link_to 'home', root_path%></li>
     <li><%= link_to 'users', users_path%></li>
@@ -20,10 +19,17 @@
     <li><%= link_to 'test results', testresults_path%></li>
     <li><%= link_to 'browsers', browsers_path%></li>
   </ul>
+  <div class="float_fix"></div>
 </div>
-
-<div class="body_main"></div>
-<%= yield %>
-
+<div id="side_bar">
+  side
+</div>
+<div id="main">
+  <%= yield %>
+</div>
+<div class="float_fix"></div>
+<div id="foot_bar">
+  foot
+</div>
 </body>
 </html>

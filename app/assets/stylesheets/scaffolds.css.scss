@@ -12,6 +12,7 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -66,4 +67,40 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.float_fix {
+  clear: both;
+}
+
+#top_bar {
+  background-color: rgb(33,33,33);
+  ul {
+    list-style: none inside none;
+    li {
+      border-left:  10px solid transparent;
+      border-right: 10px solid transparent;
+      float: left;
+    }
+  }
+}
+
+#side_bar {
+  background-color: blue;
+  float: left;
+  width: 0%;
+  display: none;
+}
+
+#main {
+  background-color: transparent;
+  float: right;
+  width: 100%;
+  ul {
+    list-style: none inside none;
+  }
+}
+
+#foot_bar {
+  background-color: yellow;
 }
